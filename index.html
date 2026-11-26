@@ -19,7 +19,7 @@
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 /* VOICE: festivo y de equipo, un aniversario contado en historias
    IDEA: un "wrapped" de 30 años que se pasa como historias de Instagram
@@ -111,6 +111,12 @@ p{margin:0}
 .list li:before{content:"";position:absolute;left:0;top:16px;width:22px;height:22px;border-radius:50%;background:var(--rojo)}
 .t-bordo .list li:before,.t-rojo .list li:before{background:var(--durazno)}
 .t-crema .list li{color:#2a2a2a}
+.chip.gold{background:linear-gradient(135deg,#F7E7A1,#D4AF37 55%,#B8901F);color:#3A2A05}
+.goldtxt{background:linear-gradient(180deg,#FFF1B0 0%,#E9C55A 45%,#C99A1E 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mapimg{position:absolute;left:-15px;bottom:0;width:1110px;display:block}
+.on .mapimg{animation:kb 1.4s .5s cubic-bezier(.2,.8,.2,1) both}
+@keyframes kb{from{transform:translateY(120px);opacity:0}to{transform:none;opacity:1}}
+#confetti{position:absolute;inset:0;z-index:27;pointer-events:none}
 .pills{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
 .pill{padding:16px 28px;border-radius:999px;background:#fff;color:var(--rojo);font-size:32px;font-weight:800}
 .t-crema .pill{background:var(--rojo);color:#fff}
@@ -154,6 +160,7 @@ p{margin:0}
   <div class="pausehint">Pausá para leer tranquilo</div>
 </div>
 <div id="toast"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#fff" stroke-width="2"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><span></span></div>
+<canvas id="confetti" width="1080" height="1920" aria-hidden="true"></canvas>
 <div id="paused" aria-hidden="true"><i></i><i></i></div>
 
 <!-- 1 · PORTADA -->
@@ -238,14 +245,15 @@ p{margin:0}
 </section>
 
 <!-- 6 · MAPA -->
-<section class="scr t-crema" data-theme="crema" aria-label="30 años creciendo en Santa Fe">
+<section class="scr t-crema" data-theme="mapa" aria-label="30 años creciendo en Santa Fe">
+  <img class="mapimg" src="assets/mapa.jpg" alt="Mapa de la provincia de Santa Fe con las sucursales de Neostar en Rosario, Santa Fe, Funes y Cañada de Gómez">
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;top:900px;height:120px;background:linear-gradient(#F0F1F1,rgba(240,241,241,0))"></div>
   <div class="pad">
     <div class="chip an" style="--d:.1s">NUESTRO MAPA</div>
-    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:112px">30 años creciendo en <span class="acc">Santa Fe</span></h2>
-    <div class="sub an" style="--d:.3s">Lo que empezó como un sueño hoy recorre la provincia</div>
-    <div class="txt"><p class="an" style="--d:.45s">Estamos en <b>Rosario, Santa Fe, Funes y Cañada de Gómez</b>, con las marcas más importantes del mercado. Detrás de cada punto del mapa hay un equipo que acompaña al cliente en todo el camino: desde la primera consulta y la venta hasta la entrega y cada servicio de posventa.</p></div>
-    <div class="pop" style="--d:.8s;--r:-1.5deg;flex:1;margin-top:34px;border-radius:36px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(60,10,10,.18)"><img src="assets/mapa.jpg" alt="Mapa de la provincia de Santa Fe con las sucursales de Neostar en Rosario, Santa Fe, Funes y Cañada de Gómez" style="width:100%;height:100%;object-fit:contain;display:block"></div>
-    <p class="an" style="--d:1.1s;margin-top:30px;font-size:40px;line-height:1.3">Miles de historias y el mismo compromiso de siempre: <b class="acc">ESTAR CERCA.</b></p>
+    <h2 class="an" style="--d:.2s;margin-top:28px;font-size:104px">30 años creciendo en <span class="acc">Santa Fe</span></h2>
+    <div class="sub an" style="--d:.3s;font-size:38px">Lo que empezó como un sueño hoy recorre la provincia</div>
+    <div class="txt" style="margin-top:24px"><p class="an" style="--d:.45s;font-size:34px;line-height:1.38">Estamos en <b>Rosario, Santa Fe, Funes y Cañada de Gómez</b>, con las marcas más importantes del mercado. Detrás de cada punto del mapa hay un equipo que acompaña al cliente en todo el camino: desde la primera consulta y la venta hasta la entrega y cada servicio de posventa.</p></div>
+    <p class="pop" style="--d:1.6s;--r:-3deg;position:absolute;right:40px;top:1120px;max-width:330px;padding:20px 24px;border-radius:22px;background:var(--rojo);color:#fff;font-size:28px;font-weight:600;line-height:1.25;box-shadow:0 16px 36px rgba(60,10,10,.25)">Miles de historias y el mismo compromiso: <b style="font-size:40px;display:block;margin-top:6px">ESTAR CERCA.</b></p>
   </div>
 </section>
 
@@ -321,7 +329,7 @@ p{margin:0}
       <p class="an" style="--d:.5s">En 2026 volvió a Santa Fe, <b>del 16 al 19 de abril</b>, al Predio Ferial de la Estación Belgrano.</p>
       <p class="an" style="--d:.6s">Dijimos presente con BYD: un stand con pantalla en la explanada, dos autos en exhibición y test drives. Una vidriera distinta para que más santafesinos conocieran la marca de cerca.</p>
     </div>
-    <div class="pills an" style="--d:.75s"><div class="pill"><span class="count" data-to="4">0</span> días de feria</div><div class="pill"><span class="count" data-to="2">0</span> autos en exhibición</div><div class="pill">1 stand con pantalla</div></div>
+    <div class="pills an" style="--d:.75s"><div class="pill"><span class="count" data-to="4">0</span> días de feria</div><div class="pill">Más de <span class="count" data-to="100">0</span> test drives</div></div>
     <div style="position:relative;flex:1">
       <div class="pol" style="--r:-2.5deg;--d:1s;left:140px;top:34px;width:660px;height:380px"><div class="tape" style="background:rgba(255,179,138,.9)"></div><img src="assets/expocon-foto.jpg" alt="El equipo de BYD Neostar en el stand de la explanada de la Estación Belgrano" style="object-position:50% 40%"></div>
     </div>
@@ -377,19 +385,22 @@ p{margin:0}
 </section>
 
 <!-- 16 · KIA -->
-<section class="scr t-kia" data-theme="kia" data-music="kia" aria-label="Reconocimiento Kia">
+<section class="scr t-kia" data-theme="kia" data-music="kia" data-confetti="1" aria-label="Reconocimiento Kia">
   <div class="pad">
-    <div class="an" style="--d:.1s;display:flex;justify-content:space-between;align-items:center"><div class="chip">KIA NEOSTAR · RECONOCIMIENTO</div><img src="assets/m-kia.png" alt="Kia" style="height:44px;filter:brightness(0) invert(1)"></div>
-    <h2 class="an" style="--d:.2s;margin-top:28px;font-size:92px;letter-spacing:-4px">Un premio a nuestra <span class="acc">trayectoria</span></h2>
+    <div class="an" style="--d:.1s;display:flex;justify-content:space-between;align-items:center"><div class="chip gold">KIA NEOSTAR · RECONOCIMIENTO</div><img src="assets/m-kia.png" alt="Kia" style="height:44px;filter:brightness(0) invert(1)"></div>
+    <h2 class="an" style="--d:.2s;margin-top:28px;font-size:92px;letter-spacing:-4px">Un premio a nuestra <span class="goldtxt">trayectoria</span></h2>
     <div class="sub an" style="--d:.3s;font-size:34px;margin-top:18px">Kia Argentina y Astara nos distinguieron en los 25 años de Astara en el país</div>
     <div class="txt" style="gap:16px;margin-top:26px">
       <p class="an" style="--d:.4s;font-size:32px;line-height:1.4">Somos <b>uno de los dos concesionarios</b> que acompañan a Kia desde el inicio de su operación en la Argentina.</p>
       <p class="an" style="--d:.5s;font-size:32px;line-height:1.4">El reconocimiento es de todas las personas que formaron y forman parte de Kia Neostar: cada etapa, cada desafío y cada logro llevan su compromiso, su dedicación y su esfuerzo.</p>
     </div>
     <div style="position:relative;flex:1">
-      <div class="pol" style="--r:-2deg;--d:.8s;left:120px;top:30px;width:660px;height:820px;padding:16px"><img src="assets/kia-collage.jpg" alt="Entrega del reconocimiento de Kia Argentina y Astara, y los equipos de Kia Neostar"></div>
-      <div class="pop" style="--d:1.5s;--r:-6deg;position:absolute;right:-20px;bottom:10px;padding:26px 34px;border-radius:22px;background:#fff;color:#B31F24;font-size:44px;font-weight:900;line-height:1.05;box-shadow:0 16px 36px rgba(0,0,0,.35)">¡Sigamos<br>creciendo juntos!</div>
+      <div class="pol" style="--r:-2deg;--d:.8s;left:140px;top:30px;width:600px;height:740px;padding:16px;background:linear-gradient(135deg,#F7E7A1,#D4AF37 45%,#B8901F 70%,#F3D77A)"><img src="assets/kia-collage.jpg" alt="Entrega del reconocimiento de Kia Argentina y Astara, y los equipos de Kia Neostar" style="background:#fff"></div>
+      <div class="pop" style="--d:1.5s;--r:12deg;position:absolute;left:640px;top:-10px;width:190px" aria-hidden="true">
+        <svg viewBox="0 0 120 170" style="width:100%;display:block;filter:drop-shadow(0 10px 16px rgba(0,0,0,.35))"><path d="M32 0h22l14 48-18 8z" fill="#7A0F2E"/><path d="M88 0H66L52 48l18 8z" fill="#E2343B"/><circle cx="60" cy="108" r="52" fill="url(#gd)"/><circle cx="60" cy="108" r="40" fill="none" stroke="#FFF3C4" stroke-width="3" opacity=".8"/><path d="M60 82l7.6 15.4 17 2.5-12.3 12 2.9 16.9L60 120.8l-15.2 8 2.9-16.9-12.3-12 17-2.5z" fill="#FFF7D6"/><defs><linearGradient id="gd" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FCEBA4"/><stop offset=".5" stop-color="#D4AF37"/><stop offset="1" stop-color="#A47E14"/></linearGradient></defs></svg>
+      </div>
     </div>
+    <p class="pop" style="--d:1.2s;--r:-2deg;align-self:center;margin-top:12px;font-size:56px;font-weight:900;letter-spacing:-1px" ><span class="goldtxt">¡Sigamos creciendo juntos!</span></p>
   </div>
 </section>
 
@@ -421,9 +432,17 @@ p{margin:0}
       <li class="an" style="--d:.65s">Sumamos el programa de calidad de BYD y empezamos a trabajar con el de Kia.</li>
     </ul>
     <div style="flex:1"></div>
-    <div class="pop" style="--d:1s;--r:-2deg;display:flex;align-items:center;gap:30px;padding:36px 40px;border-radius:36px;background:var(--crema);color:var(--tinta);box-shadow:0 20px 50px rgba(0,0,0,.3)">
-      <div style="flex-shrink:0;font-size:230px;font-weight:900;letter-spacing:-10px;line-height:.85;color:var(--rojo)"><span class="count" data-to="8">0</span>º</div>
-      <div><div style="font-size:26px;font-weight:800;letter-spacing:3px;color:var(--rojo)">NISSAN NEOSTAR</div><div style="margin-top:8px;font-size:44px;font-weight:900;line-height:1.1">Reconocimiento Oro consecutivo en Calidad SerNissan</div><div style="margin-top:10px;font-size:28px;font-weight:600;line-height:1.3;opacity:.8">Ocho ciclos construidos cliente a cliente.</div></div>
+    <div class="pop" style="--d:1s;--r:-1.5deg;padding:40px 44px 44px;border-radius:40px;background:#fff;color:#333;box-shadow:0 24px 60px rgba(0,0,0,.35);border:6px solid #D4AF37">
+      <div style="display:flex;justify-content:space-between;align-items:center"><img src="assets/sernissan.png" alt="Ser Nissan" style="width:360px;display:block"><div style="font-family:'Montserrat',Poppins,sans-serif;font-size:26px;font-weight:600;letter-spacing:5px;color:#8a8a8a;text-align:right">NISSAN<br>NEOSTAR</div></div>
+      <div style="margin-top:26px;display:flex;align-items:center;gap:34px">
+        <div style="flex-shrink:0;font-family:'Montserrat',Poppins,sans-serif;font-size:290px;font-weight:300;letter-spacing:-12px;line-height:.82;color:#C3002F"><span class="count" data-to="8">0</span>º</div>
+        <div style="font-family:'Montserrat',Poppins,sans-serif;text-transform:uppercase;letter-spacing:4px">
+          <div style="font-size:30px;font-weight:500;color:#666">Reconocimiento</div>
+          <div class="goldtxt" style="font-size:96px;font-weight:700;letter-spacing:6px;line-height:1">ORO</div>
+          <div style="font-size:30px;font-weight:500;color:#666">consecutivo en<br>Calidad SerNissan</div>
+        </div>
+      </div>
+      <div style="margin-top:22px;font-size:28px;font-weight:600;color:#555">Ocho ciclos construidos cliente a cliente.</div>
     </div>
   </div>
 </section>
@@ -517,6 +536,7 @@ const THEMES={
   bordo:{bg:'var(--bordo)',blobs:[['var(--rojo)',900,'right:-360px;top:-260px'],['var(--coral)',700,'left:-320px;bottom:-120px;opacity:.65']],dots:'rgba(255,179,138,.38)',dpos:'left:0;top:0;width:640px;height:640px',mask:'radial-gradient(circle at 0 0,#000 0,transparent 70%)'},
   bordo2:{bg:'var(--bordo)',blobs:[['var(--rojo)',900,'left:-300px;top:-200px'],['var(--coral)',700,'right:-300px;bottom:-160px;opacity:.8']],dots:'rgba(255,179,138,.4)',dpos:'left:0;bottom:0;width:560px;height:560px',mask:'radial-gradient(circle at 0 100%,#000 0,transparent 70%)'},
   crema:{bg:'var(--crema)',blobs:[['var(--durazno)',800,'right:-380px;top:-260px;opacity:.75'],['#FFD9C2',700,'left:-320px;bottom:-200px;opacity:.9']],dots:'rgba(226,52,59,.28)',dpos:'right:0;bottom:0;width:700px;height:520px',mask:'linear-gradient(270deg,#000,transparent 75%)',grain:.5},
+  mapa:{bg:'#F0F1F1',blobs:[['var(--durazno)',700,'right:-340px;top:-260px;opacity:.6']],dots:'rgba(226,52,59,.25)',dpos:'left:0;top:180px;width:520px;height:520px',mask:'radial-gradient(circle at 0 30%,#000 0,transparent 70%)',grain:.4},
   sunset:{bg:'linear-gradient(180deg,#5B1A5E 0%,#C2364A 45%,#FF8A4C 80%,#FFB38A 100%)',blobs:[['#FF6B4A',700,'left:-260px;top:500px;opacity:.6'],['#7A0F2E',700,'right:-300px;top:-200px;opacity:.8']],dots:'rgba(255,230,210,.35)',dpos:'right:0;top:300px;width:600px;height:600px',mask:'radial-gradient(circle at 100% 50%,#000 0,transparent 70%)'},
   kia:{bg:'#B31F24',blobs:[['var(--bordo)',900,'left:-320px;bottom:-240px'],['var(--coral)',600,'right:-260px;top:-140px;opacity:.6']],dots:'rgba(255,255,255,.25)',dpos:'right:0;top:0;width:600px;height:600px',mask:'radial-gradient(circle at 100% 0,#000 0,transparent 70%)'},
   cierre:{bg:'linear-gradient(160deg,var(--rojo) 10%,var(--bordo) 85%)',blobs:[['var(--coral)',800,'left:-260px;top:300px;opacity:.7'],['var(--durazno)',600,'right:-260px;top:-160px;opacity:.5']],dots:'rgba(255,255,255,.28)',dpos:'right:0;bottom:420px;width:700px;height:520px',mask:'linear-gradient(270deg,#000,transparent 80%)'}
@@ -555,7 +575,11 @@ function go(i){if(i<0||i>=scrs.length)return;if(cur>=0)scrs[cur].classList.remov
   s.querySelectorAll('.count').forEach(el=>setTimeout(()=>countUp(el),700));s.querySelectorAll('.year').forEach(yearDown);
   if(s.contains(vid)){try{vid.currentTime=0}catch(e){}play(vid)}
   setTrack(s.dataset.music||'main');
+  if(s.dataset.confetti){setTimeout(confetti,350)}else{cancelAnimationFrame(confRAF);cx.clearRect(0,0,1080,1920)}
   if(i===0){tutOn=true;tut.classList.add('show')}}
+const cvs=document.getElementById('confetti'),cx=cvs.getContext('2d');let confRAF=0;
+function confetti(){cancelAnimationFrame(confRAF);const cols=['#D4AF37','#F7E7A1','#E2343B','#FFFFFF','#B8901F','#FFB38A'];const P=Array.from({length:170},()=>({x:Math.random()*1080,y:-40-Math.random()*900,w:12+Math.random()*14,h:18+Math.random()*16,vx:-3+Math.random()*6,vy:7+Math.random()*9,r:Math.random()*6.28,vr:-.2+Math.random()*.4,c:cols[Math.random()*cols.length|0]}));const t0=performance.now();
+  (function f(n){cx.clearRect(0,0,1080,1920);const el=n-t0;P.forEach(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.r+=p.vr;cx.save();cx.globalAlpha=Math.max(0,1-Math.max(0,el-2600)/900);cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.w/2,-p.h/2,p.w,p.h*Math.abs(Math.cos(p.r*2)));cx.restore()});if(el<3600)confRAF=requestAnimationFrame(f);else cx.clearRect(0,0,1080,1920)})(t0)}
 function hideTut(){if(!tutOn)return;tutOn=false;tutDone=true;tut.classList.remove('show');t0=performance.now()}
 function next(){if(!started)return;if(cur<scrs.length-1)go(cur+1)}
 function prev(){if(cur>1)go(cur-1)}
