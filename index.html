@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Newsletter Diciembre 2026 · Neostar 30 años</title>
+<meta name="description" content="Todo lo que vivimos en 2026, contado por todas las áreas y marcas que forman Neostar.">
+<meta name="robots" content="noindex, nofollow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Newsletter Diciembre 2026 · Neostar 30 años">
+<meta property="og:description" content="Todo lo que vivimos en 2026, en historias. Subí el volumen.">
+<meta property="og:image" content="__OG_URL__">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="__OG_URL__">
+<meta name="theme-color" content="#7A0F2E">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* VOICE: festivo y de equipo, un aniversario contado en historias
+   IDEA: un "wrapped" de 30 años que se pasa como historias de Instagram
+   PICTURE: degradés con grano, tramas de puntos, polaroids y stickers
+   COLOUR and TYPE: rojo Neostar + coral, durazno, bordó y crema; Poppins
+   LAYOUT: escenario 1080x1920 escalado al teléfono, una idea por pantalla */
+:root{--rojo:#E2343B;--coral:#FF6B4A;--durazno:#FFB38A;--bordo:#7A0F2E;--crema:#F6EFE6;--tinta:#141414}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0;min-height:100%;background:#1a0a0d;overflow:hidden;font-family:Poppins,system-ui,sans-serif;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;overscroll-behavior:none}
+#wrap{position:relative;width:100vw;height:100vh;height:100dvh;overflow:hidden;touch-action:manipulation}
+#stage{position:absolute;left:50%;top:50%;width:1080px;height:1920px;transform-origin:0 0;overflow:hidden;background:var(--bordo)}
+.scr{position:absolute;inset:0;display:none;overflow:hidden}
+.scr.on{display:block;animation:fadein .35s ease both}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.bg{position:absolute;inset:0;overflow:hidden}
+.blob{position:absolute;border-radius:50%;animation:drift 14s ease-in-out infinite alternate}
+@keyframes drift{to{transform:translate(var(--dx,80px),var(--dy,-60px)) scale(1.12)}}
+.grain{position:absolute;inset:0;pointer-events:none;background:url(assets/grano.png) repeat;background-size:256px 256px;opacity:.9}
+.dots{position:absolute;background-image:radial-gradient(var(--c,#fff) 3.2px,transparent 3.6px);background-size:22px 22px}
+.t-crema{color:var(--tinta)}.t-rojo,.t-bordo,.t-sunset,.t-kia{color:#fff}
+.hud{position:absolute;left:0;right:0;top:0;z-index:30;padding:44px 56px 0;pointer-events:none}
+.bars{display:flex;gap:6px}
+.bar{flex:1;height:8px;border-radius:4px;background:rgba(255,255,255,.32);overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#fff}
+.hud.dark .bar{background:rgba(20,20,20,.16)}.hud.dark .bar i{background:var(--tinta)}
+.hudrow{margin-top:24px;display:flex;justify-content:space-between;align-items:center;font-size:26px;font-weight:700;letter-spacing:4px;color:rgba(255,255,255,.88)}
+.hud.dark .hudrow{color:rgba(20,20,20,.72)}
+.hbtns{display:flex;gap:16px}
+.hbtn{pointer-events:auto;width:92px;height:92px;border-radius:50%;border:0;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.hud.dark .hbtn{background:rgba(20,20,20,.09)}
+.hbtn svg{width:46px;height:46px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hud.dark .hbtn svg{stroke:var(--tinta)}
+.hbtn svg .f{fill:#fff;stroke:none}.hud.dark .hbtn svg .f{fill:var(--tinta)}
+.pad{position:absolute;inset:0;padding:230px 72px 100px;display:flex;flex-direction:column}
+.chip{align-self:flex-start;padding:12px 26px;border-radius:999px;font-size:28px;font-weight:800;letter-spacing:3px;background:var(--rojo);color:#fff}
+.t-rojo .chip,.t-kia .chip{background:#fff;color:var(--rojo)}
+.t-sunset .chip{background:var(--tinta);color:#fff}
+h1,h2{margin:0;font-weight:900;letter-spacing:-5px;line-height:.95}
+h2{font-size:118px}
+.sub{margin-top:24px;font-size:42px;font-weight:500;line-height:1.3;opacity:.82}
+p{margin:0}
+.txt{display:flex;flex-direction:column;gap:24px;margin-top:40px}
+.txt p{font-size:38px;line-height:1.42}
+.t-crema .txt p{color:#2a2a2a}
+.sm .txt p{font-size:35px;line-height:1.42}
+.acc{color:var(--rojo)}.t-rojo .acc,.t-bordo .acc,.t-sunset .acc,.t-kia .acc{color:var(--durazno)}
+.an{opacity:0}
+.on .an{animation:up .8s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0s)}
+@keyframes up{from{opacity:0;transform:translateY(60px)}to{opacity:1;transform:none}}
+.pop{opacity:0}
+.on .pop{animation:pop .7s cubic-bezier(.3,1.6,.5,1) both;animation-delay:var(--d,0s)}
+@keyframes pop{from{opacity:0;transform:scale(.3) rotate(-30deg)}to{opacity:1;transform:scale(1) rotate(var(--r,0deg))}}
+.spin{animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pol{position:absolute;background:#fff;padding:16px 16px 58px;box-shadow:0 22px 50px rgba(40,5,10,.3);opacity:0}
+.pol img{display:block;width:100%;height:100%;object-fit:cover}
+.pol.static{position:relative}
+.on .pol{animation:drop .9s cubic-bezier(.2,1.3,.4,1) both;animation-delay:var(--d,0s)}
+@keyframes drop{from{opacity:0;transform:translateY(-260px) rotate(calc(var(--r,0deg) + 18deg)) scale(1.15)}to{opacity:1;transform:rotate(var(--r,0deg))}}
+.cap{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-size:28px;font-weight:800;color:#2a2a2a}
+.tape{position:absolute;left:50%;top:-20px;width:160px;height:42px;margin-left:-80px;background:rgba(226,52,59,.82);transform:rotate(-3deg)}
+.stats{display:grid;gap:20px;margin-top:40px}
+.stat{border-radius:32px;padding:28px 30px;background:#fff;color:var(--tinta)}
+.stat b{display:block;white-space:nowrap;font-size:66px;font-weight:900;letter-spacing:-3px;line-height:1;color:var(--rojo)}
+.stat span{display:block;margin-top:10px;font-size:29px;font-weight:600;line-height:1.2}
+.stat .count{display:inline;margin:0;font:inherit}
+.stat.hot{background:var(--rojo);color:#fff;transform:rotate(-2deg)}.stat.hot b{color:#fff}
+.t-rojo .stat,.t-bordo .stat{background:rgba(255,255,255,.14);color:#fff}.t-rojo .stat b,.t-bordo .stat b{color:#fff}
+.t-bordo .stat .count{display:inline;margin:0;font:inherit}
+.stat.hot{background:var(--durazno);color:var(--bordo)}.t-bordo .stat.hot b{color:var(--bordo)}
+.ph{border:4px dashed currentColor;opacity:.4;border-radius:28px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:28px;font-weight:800;letter-spacing:3px;padding:24px}
+.quote{border-left:8px solid var(--rojo);padding-left:30px;font-size:44px;font-weight:800;line-height:1.28}
+.t-rojo .quote,.t-bordo .quote,.t-kia .quote{border-color:var(--durazno)}
+.quote small{display:block;margin-top:16px;font-size:30px;font-weight:600;opacity:.75}
+.cta{align-self:center;display:flex;align-items:center;gap:20px;padding:30px 56px;border-radius:999px;background:#fff;color:var(--rojo);font-size:42px;font-weight:800;border:0;cursor:pointer;font-family:inherit;box-shadow:0 18px 50px rgba(80,0,10,.35)}
+.on .pulse{animation:up .8s .9s both,pulse 1.8s 1.8s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.05)}}
+.vcard{position:relative;width:740px;height:1316px;border-radius:44px;overflow:hidden;align-self:center;box-shadow:0 0 0 8px rgba(255,255,255,.9),0 40px 90px rgba(40,0,10,.5)}
+.vcard video{width:100%;height:100%;object-fit:cover;display:block;background:#000}
+#vsnd{position:absolute;left:50%;bottom:40px;transform:translateX(-50%);display:flex;align-items:center;gap:16px;padding:22px 36px;border-radius:999px;border:0;background:rgba(20,20,20,.75);color:#fff;font:700 32px Poppins,sans-serif;cursor:pointer;white-space:nowrap}
+#vsnd svg{width:42px;height:42px;stroke:#fff;fill:none;stroke-width:2}
+.brands{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 30px;align-items:center;justify-items:center}
+.brands img{max-width:150px;max-height:62px;filter:brightness(0) invert(1);opacity:.92}
+.tl{margin-top:36px;display:flex;flex-direction:column}
+.tl div{display:grid;grid-template-columns:200px 1fr;column-gap:24px;border-top:2px solid rgba(255,255,255,.22);padding:18px 0}
+.tl b{font-size:32px;font-weight:800;color:var(--durazno);letter-spacing:1px}
+.tl span{font-size:35px;font-weight:500;line-height:1.3}
+.list{margin:40px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:22px}
+.list li{position:relative;padding-left:46px;font-size:36px;line-height:1.38}
+.list li:before{content:"";position:absolute;left:0;top:16px;width:22px;height:22px;border-radius:50%;background:var(--rojo)}
+.t-bordo .list li:before,.t-rojo .list li:before{background:var(--durazno)}
+.t-crema .list li{color:#2a2a2a}
+.pills{display:flex;flex-wrap:wrap;gap:16px;margin-top:32px}
+.pill{padding:16px 28px;border-radius:999px;background:#fff;color:var(--rojo);font-size:32px;font-weight:800}
+.t-crema .pill{background:var(--rojo);color:#fff}
+.yt{position:relative;display:block;border-radius:32px;overflow:hidden;text-decoration:none;color:#fff;background:#1C1C1C center/cover}
+.yt .play{position:absolute;left:50%;top:45%;width:170px;height:120px;margin:-60px 0 0 -85px;border-radius:34px;background:#FF0000;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 34px rgba(0,0,0,.4)}
+.on .yt .play{animation:pulse 1.6s 1.4s ease-in-out infinite}
+#tut{position:absolute;inset:0;z-index:25;display:none}
+#tut.show{display:block;animation:fadein .4s ease both}
+.half{position:absolute;top:560px;width:270px;height:620px;background:rgba(20,20,20,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;color:#fff;font-size:34px;font-weight:800;text-align:center;line-height:1.15}
+.half.l{left:0;border-radius:0 340px 340px 0;padding-right:40px}
+.half.r{right:0;border-radius:340px 0 0 340px;padding-left:40px}
+.half svg{width:80px;height:80px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.on .half.r svg{animation:nudge 1.2s ease-in-out infinite}
+@keyframes nudge{50%{transform:translateX(14px)}}
+.pausehint{position:absolute;right:120px;top:205px;display:flex;align-items:center;gap:14px;padding:18px 26px;border-radius:24px;background:rgba(20,20,20,.62);color:#fff;font-size:30px;font-weight:700}
+.pausehint:after{content:"";position:absolute;right:46px;top:-18px;border:12px solid transparent;border-bottom-color:rgba(20,20,20,.62);border-top:0;border-width:0 14px 18px}
+#toast{position:absolute;left:55%;top:96px;transform:translate(-50%,-20px);z-index:28;display:flex;align-items:center;gap:10px;padding:10px 22px;border-radius:999px;background:rgba(20,20,20,.8);color:#fff;font-size:22px;font-weight:700;opacity:0;transition:opacity .4s,transform .4s;pointer-events:none;white-space:nowrap}
+#toast.show{opacity:1;transform:translate(-50%,0)}
+#paused{position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;background:rgba(20,20,20,.55);z-index:26;display:none;align-items:center;justify-content:center}
+#paused.show{display:flex}
+#paused i{display:block;width:26px;height:90px;background:#fff;border-radius:6px;margin:0 12px}
+@media (prefers-reduced-motion:reduce){.blob,.spin,.pulse{animation:none!important}.on .an,.on .pol,.on .pop{animation-duration:.01s!important}}
+</style>
+</head>
+<body>
+<div id="wrap"><div id="stage">
+
+<div class="hud" id="hud">
+  <div class="bars" id="bars"></div>
+  <div class="hudrow"><span>NEOSTAR · 30 AÑOS</span>
+    <div class="hbtns">
+      <button class="hbtn" id="pau" aria-label="Pausar"><svg viewBox="0 0 24 24" id="pauIco"><rect class="f" x="6" y="5" width="4" height="14" rx="1"/><rect class="f" x="14" y="5" width="4" height="14" rx="1"/></svg></button>
+      <button class="hbtn" id="snd" aria-label="Silenciar música"><svg viewBox="0 0 24 24" id="sndIco"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<div id="tut" aria-hidden="true">
+  <div class="half l"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>Tocá para<br>retroceder</div>
+  <div class="half r"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>Tocá para<br>avanzar</div>
+  <div class="pausehint">Pausá para leer tranquilo</div>
+</div>
+<div id="toast"><svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="#fff" stroke-width="2"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><span></span></div>
+<div id="paused" aria-hidden="true"><i></i><i></i></div>
+
+<!-- 1 · PORTADA -->
+<section class="scr t-rojo" data-theme="rojo" data-manual="1" aria-label="Portada">
+  <div class="pad">
+    <img class="an" src="assets/logo30.png" alt="30 años Neostar — Compartiendo caminos" style="--d:.15s;width:620px;margin-top:40px">
+    <div class="pop" style="--d:.8s;--r:-10deg;position:absolute;right:70px;top:640px;width:250px;height:250px">
+      <svg viewBox="0 0 200 200" class="spin" style="width:100%;height:100%" aria-hidden="true"><defs><path id="cp" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><circle cx="100" cy="100" r="98" fill="#fff"/><text font-family="Poppins" font-weight="800" font-size="17" letter-spacing="3" fill="#E2343B"><textPath href="#cp">COMPARTIENDO CAMINOS · 30 AÑOS · </textPath></text></svg>
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:84px;font-weight:900;color:var(--rojo);letter-spacing:-4px">30</div>
+    </div>
+    <div style="flex:1"></div>
+    <div class="an" style="--d:.25s;font-size:32px;font-weight:800;letter-spacing:5px;color:var(--durazno)">NEWSLETTER · DICIEMBRE 2026</div>
+    <h1 class="an" style="--d:.35s;margin-top:20px;font-size:190px;letter-spacing:-9px">Edición<br><span style="color:var(--durazno)">30 años.</span></h1>
+    <p class="an" style="--d:.55s;margin-top:40px;font-size:44px;font-weight:500;line-height:1.3;max-width:900px">Todo lo que vivimos en 2026, contado por todas las áreas y marcas que forman Neostar.</p>
+    <div style="height:80px"></div>
+    <button class="cta pulse" id="start" style="opacity:0"><svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true"><path d="M7 4v16l13-8z" fill="#E2343B"/></svg>Tocá para empezar</button>
+    <p class="an" style="--d:1.1s;margin-top:26px;text-align:center;font-size:30px;font-weight:600;opacity:.88">Con música · subí el volumen</p>
+  </div>
+</section>
+
+<!-- 2 · 1996 -->
+<section class="scr t-bordo" data-theme="bordo" aria-label="Donde empezó todo">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s;background:var(--durazno);color:var(--bordo)">DONDE EMPEZÓ TODO</div>
+    <div class="an" style="--d:.2s;margin-top:34px;font-size:250px;font-weight:900;letter-spacing:-12px;line-height:.85"><span class="year" data-from="2026" data-to="1996">2026</span></div>
+    <p class="an" style="--d:.4s;margin-top:30px;font-size:44px;font-weight:500;line-height:1.35">Así arrancó todo: el primer local de Neostar, en <b>Rosario</b>, el <b>6 de junio de 1996</b>.</p>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-4deg;--d:.7s;left:10px;top:70px;width:920px;height:640px;padding-bottom:90px"><img src="assets/primer-local.jpg" alt="Fachada nocturna del primer local de Neostar en Rosario, en 1996" style="filter:sepia(.25)"></div>
+      <div class="pop" style="--d:1.4s;--r:8deg;position:absolute;right:20px;top:20px;padding:20px 30px;background:var(--rojo);color:#fff;font-size:40px;font-weight:900;box-shadow:0 14px 30px rgba(0,0,0,.3)">06/06/96</div>
+    </div>
+    <p class="an" style="--d:1.6s;font-size:38px;font-weight:700;color:var(--durazno)">30 años después, seguimos compartiendo caminos.</p>
+  </div>
+</section>
+
+<!-- 3 · SEMILLERO -->
+<section class="scr t-crema" data-theme="crema" aria-label="Semillero de pasantías">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">TALENTO HUMANO</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:104px">Aprender haciendo. <span class="acc">Crecer compartiendo.</span></h2>
+    <div class="sub an" style="--d:.3s">Semillero de pasantías</div>
+    <div class="txt">
+      <p class="an" style="--d:.4s">En Neostar abrimos las puertas a pasantes de <b>Recursos Humanos, Marketing, Mecánica y Posventa</b>, y los acompañamos en sus primeros pasos profesionales.</p>
+      <p class="an" style="--d:.5s">Nos sumamos también a proyectos que trascienden, como nuestro aporte al desarrollo del <b>auto eléctrico junto a la Escuela Manuel Belgrano</b>.</p>
+      <p class="an" style="--d:.6s">Porque cuando damos lugar al <b>talento joven</b>, no solo formamos futuros profesionales: también construimos nuevas ideas. <b>Gracias a quienes enseñan y a quienes se animan a aprender.</b></p>
+    </div>
+    <div class="stats an" style="--d:.8s;grid-template-columns:1fr 1.6fr">
+      <div class="stat hot"><b><span class="count" data-to="4">0</span></b><span>áreas con pasantes</span></div>
+      <div class="stat"><b><span class="count" data-to="1">0</span></b><span>proyecto de auto eléctrico con la Escuela Manuel Belgrano</span></div>
+    </div>
+    <div class="ph an" style="--d:1s;margin-top:36px;flex:1">FOTO DE LOS PASANTES · PRÓXIMAMENTE</div>
+  </div>
+</section>
+
+<!-- 4 · I+D -->
+<section class="scr t-sunset" data-theme="sunset" data-music="gta" aria-label="Creación del departamento de I+D">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">INNOVACIÓN Y DESARROLLO</div>
+    <div class="an" style="--d:.2s;margin-top:26px;display:flex;align-items:flex-end;justify-content:space-between;gap:20px">
+      <h2 style="font-size:76px;letter-spacing:-4px;white-space:nowrap">Creación del<br>departamento de</h2>
+      <img src="assets/id-logo.png" alt="I+D Neostar" style="width:290px;flex-shrink:0;margin-bottom:-6px">
+    </div>
+    <div class="sub an" style="--d:.3s;font-size:36px">Un nuevo paso para crecer de la mano de la innovación</div>
+    <div class="txt" style="gap:18px;margin-top:30px">
+      <p class="an" style="--d:.4s;font-size:33px;line-height:1.4">La tecnología avanza todo el tiempo, y para seguir creciendo necesitamos acompañar ese movimiento. Por eso creamos el departamento de <b>Innovación y Desarrollo</b>.</p>
+      <p class="an" style="--d:.5s;font-size:33px;line-height:1.4">Su misión: buscar nuevas soluciones, incorporar herramientas y encontrar formas más simples y dinámicas de hacer nuestro trabajo.</p>
+      <p class="an" style="--d:.6s;font-size:33px;line-height:1.4">Sabemos que cada cambio lleva su tiempo. Así, el proceso va a ser compartido, al ritmo de cada colaborador, para que las herramientas estén al servicio de las personas.</p>
+    </div>
+    <div class="quote an" style="--d:.7s;margin-top:28px;font-size:36px;border-color:var(--tinta)">“Innovar no es cambiar por cambiar, sino animarnos a pensar cómo hacer las cosas mejor.”</div>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-4deg;--d:1s;left:0;top:34px;width:470px;height:510px;padding-bottom:16px"><img src="assets/id-gta.jpg" alt="Avatares ilustrados al estilo GTA del equipo de Innovación y Desarrollo de Neostar"></div>
+      <div class="pop" style="--d:1.6s;--r:5deg;position:absolute;right:0;top:170px;width:430px;padding:44px 34px 34px;background:var(--durazno);color:#3A1210;box-shadow:0 18px 40px rgba(0,0,0,.35)">
+        <div style="position:absolute;left:50%;top:-20px;width:140px;height:40px;margin-left:-70px;background:rgba(255,255,255,.6);transform:rotate(-4deg)"></div>
+        <div style="font-size:40px;font-weight:800;line-height:1.22">Fieles a su estilo, quisieron aparecer en modo IA y full GTA.</div>
+        <div style="margin-top:14px;font-size:26px;font-weight:800;letter-spacing:3px;opacity:.75">EQUIPO I+D</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · MAPA -->
+<section class="scr t-crema" data-theme="crema" aria-label="30 años creciendo en Santa Fe">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">NUESTRO MAPA</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:112px">30 años creciendo en <span class="acc">Santa Fe</span></h2>
+    <div class="sub an" style="--d:.3s">Lo que empezó como un sueño hoy recorre la provincia</div>
+    <div class="txt"><p class="an" style="--d:.45s">Estamos en <b>Rosario, Santa Fe, Funes y Cañada de Gómez</b>, con las marcas más importantes del mercado. Detrás de cada punto del mapa hay un equipo que acompaña al cliente en todo el camino: desde la primera consulta y la venta hasta la entrega y cada servicio de posventa.</p></div>
+    <div class="pop" style="--d:.8s;--r:-1.5deg;flex:1;margin-top:34px;border-radius:36px;overflow:hidden;background:#fff;box-shadow:0 20px 50px rgba(60,10,10,.18)"><img src="assets/mapa.jpg" alt="Mapa de la provincia de Santa Fe con las sucursales de Neostar en Rosario, Santa Fe, Funes y Cañada de Gómez" style="width:100%;height:100%;object-fit:contain;display:block"></div>
+    <p class="an" style="--d:1.1s;margin-top:30px;font-size:40px;line-height:1.3">Miles de historias y el mismo compromiso de siempre: <b class="acc">ESTAR CERCA.</b></p>
+  </div>
+</section>
+
+<!-- 9 · SALÓN -->
+<section class="scr t-crema" data-theme="crema" aria-label="Salón del Automóvil">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">EVENTOS Y ACCIONES</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:132px;letter-spacing:-6px">Salón del<br><span class="acc">Automóvil</span></h2>
+    <div class="sub an" style="--d:.3s">Uno de los stands más grandes del predio, con BYD debutando junto a nosotros</div>
+    <div class="txt">
+      <p class="an" style="--d:.4s">En marzo armamos la casa más grande que tuvimos hasta ahora: <b>más de 800 m² en Ciudad Industria</b>, con siete marcas: Nissan, Kia, Suzuki, Subaru, Jeep, RAM y BYD.</p>
+      <p class="an" style="--d:.5s">Fueron cinco días de <b>test drives</b>, charlas en el auditorio y lanzamientos. Y la BYD Shark se robó todas las miradas, junto con una pochoclera enchufada al auto.</p>
+    </div>
+    <div class="stats an" style="--d:.7s;grid-template-columns:repeat(3,minmax(0,1fr))">
+      <div class="stat"><b><span class="count" data-to="800">0</span> m²</b><span>de stand</span></div>
+      <div class="stat hot"><b><span class="count" data-to="5">0</span></b><span>días de Salón</span></div>
+      <div class="stat"><b><span class="count" data-to="200">0</span> mil</b><span>personas pasaron por el predio</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · SALÓN FOTOS -->
+<section class="scr t-bordo" data-theme="bordo" aria-label="Fotos del stand del Salón del Automóvil">
+  <div class="pad">
+    <div style="position:relative;flex:1;margin-top:-10px">
+      <div class="pol" style="--r:-7deg;--d:.2s;left:-10px;top:0;width:470px;height:380px"><img src="assets/nissan.jpg" alt="Stand de Nissan" style="object-position:60% 60%"></div>
+      <div class="pol" style="--r:6deg;--d:.35s;left:450px;top:30px;width:470px;height:380px"><img src="assets/kia.jpg" alt="Stand de Kia" style="object-position:50% 70%"></div>
+      <div class="pol" style="--r:-3deg;--d:.5s;left:30px;top:420px;width:440px;height:360px"><img src="assets/suzuki.jpg" alt="Stand de Suzuki" style="object-position:40% 60%"></div>
+      <div class="pol" style="--r:5deg;--d:.65s;left:470px;top:450px;width:440px;height:360px"><img src="assets/subaru.jpg" alt="Stand de Subaru" style="object-position:55% 60%"></div>
+      <div class="pol" style="--r:-2deg;--d:.95s;left:60px;top:800px;width:820px;height:540px;padding-bottom:84px"><div class="tape"></div><img src="assets/equipo.jpg" alt="El equipo de Neostar saludando frente al logo en el stand del Salón del Automóvil" style="object-position:50% 45%"><div class="cap">EL EQUIPO</div></div>
+    </div>
+    <p class="an" style="--d:1.3s;font-size:38px;line-height:1.38;font-weight:500">Nada de esto pasa sin el equipo que estuvo ahí todos los días y los que bancaron desde las sucursales. <b class="acc" style="font-size:52px">¡Gracias!</b></p>
+  </div>
+</section>
+
+<!-- 11 · RECAP -->
+<section class="scr t-bordo" data-theme="bordo2" data-dur="video" aria-label="Recap en video del Salón">
+  <div class="pad" style="padding-top:220px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between">
+      <h2 class="an" style="--d:.1s;font-size:110px">Así lo<br>vivimos</h2>
+      <div class="an" style="--d:.25s;text-align:right;font-size:32px;font-weight:700;line-height:1.3;color:var(--durazno)">SALÓN DEL<br>AUTOMÓVIL<br>EN 40"</div>
+    </div>
+    <div class="vcard an" style="--d:.35s;margin-top:44px">
+      <video id="vid" src="assets/recap.mp4" poster="assets/recap-poster.jpg" muted playsinline preload="metadata" aria-label="Recap en video del stand de Neostar en el Salón del Automóvil"></video>
+      <button id="vsnd"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/></svg><span>Escuchar el video</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · EXPOCON -->
+<section class="scr t-rojo sm" data-theme="rojo" aria-label="Expocon Santa Fe">
+  <div class="pad">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:30px">
+      <div><div class="chip an" style="--d:.1s">EVENTOS Y ACCIONES</div><h2 class="an" style="--d:.2s;margin-top:28px;font-size:108px">Expocon<br>Santa Fe</h2></div>
+      <img class="pop" src="assets/expocon-logo.png" alt="Logo de Expocon · Abril Santa Fe 2026" style="--d:.6s;--r:-4deg;width:300px">
+    </div>
+    <div class="sub an" style="--d:.3s">BYD, protagonista en la feria de la construcción</div>
+    <div class="txt">
+      <p class="an" style="--d:.4s">Expocon es la exposición nacional de la construcción: desde 1997 reúne a toda la cadena del sector, de constructores y desarrolladores a proveedores y pymes.</p>
+      <p class="an" style="--d:.5s">En 2026 volvió a Santa Fe, <b>del 16 al 19 de abril</b>, al Predio Ferial de la Estación Belgrano.</p>
+      <p class="an" style="--d:.6s">Dijimos presente con BYD: un stand con pantalla en la explanada, dos autos en exhibición y test drives. Una vidriera distinta para que más santafesinos conocieran la marca de cerca.</p>
+    </div>
+    <div class="pills an" style="--d:.75s"><div class="pill"><span class="count" data-to="4">0</span> días de feria</div><div class="pill"><span class="count" data-to="2">0</span> autos en exhibición</div><div class="pill">1 stand con pantalla</div></div>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-2.5deg;--d:1s;left:140px;top:34px;width:660px;height:380px"><div class="tape" style="background:rgba(255,179,138,.9)"></div><img src="assets/expocon-foto.jpg" alt="El equipo de BYD Neostar en el stand de la explanada de la Estación Belgrano" style="object-position:50% 40%"></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13 · FUNES -->
+<section class="scr t-crema sm" data-theme="crema" aria-label="Inauguración Funes">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">NUEVA SUCURSAL</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:112px">Inauguración <span class="acc">Funes</span></h2>
+    <div class="sub an" style="--d:.3s">Un showroom propio para Subaru y Suzuki.</div>
+    <div class="txt">
+      <p class="an" style="--d:.4s">El <b>7 de mayo</b> abrimos nuestro nuevo espacio en <b>Vida Multiespacio</b>, sobre Av. Arturo Illia 484 Bis: un showroom pensado como una experiencia de marca, no solo como un salón de autos.</p>
+      <p class="an" style="--d:.5s">Son 700 m² de exhibición y venta, con oficinas en la planta alta, en uno de los polos comerciales que más crecen en la zona.</p>
+      <p class="an" style="--d:.6s">Y abrió con una novedad de Suzuki: el Swift Híbrido. Un paso más para estar cerca de nuestros clientes.</p>
+    </div>
+    <div class="pills an" style="--d:.75s"><div class="pill"><span class="count" data-to="700">0</span> m² de showroom</div><div class="pill">2 marcas: Subaru y Suzuki</div></div>
+    <a class="yt pop" href="https://www.youtube.com/watch?v=naLvin3biik" target="_blank" rel="noopener" aria-label="Ver en YouTube el video de la inauguración de Funes" style="--d:1s;--r:0deg;flex:1;margin-top:36px;background-image:linear-gradient(180deg,rgba(0,0,0,.05) 35%,rgba(0,0,0,.78)),url('https://i.ytimg.com/vi/naLvin3biik/hqdefault.jpg')">
+      <div class="play"><svg viewBox="0 0 24 24" width="64" height="64"><path d="M8 5v14l11-7z" fill="#fff"/></svg></div>
+      <div style="position:absolute;left:40px;right:40px;bottom:34px"><div style="font-size:26px;font-weight:700;letter-spacing:4px;opacity:.85">VIDEO · YOUTUBE</div><div style="margin-top:8px;font-size:40px;font-weight:800;line-height:1.2">Así vivimos la inauguración en Funes</div><div style="margin-top:6px;font-size:28px;font-weight:600;opacity:.88">Tocá para verlo →</div></div>
+    </a>
+  </div>
+</section>
+
+<!-- 14 · BYD -->
+<section class="scr t-rojo" data-theme="rojo" aria-label="BYD: un año a toda velocidad">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">LA NUEVA MARCA QUE SE SUMA</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:112px">BYD: un año a <span class="acc">toda velocidad</span></h2>
+    <div class="sub an" style="--d:.3s">Pasó de llegar en barco a tener casa propia en Rosario</div>
+    <div class="tl">
+      <div class="an" style="--d:.4s"><b>DIC 2025</b><span>Empezamos a vender BYD en la región</span></div>
+      <div class="an" style="--d:.5s"><b>28 ENE</b><span>15 entregas frente al Monumento a la Bandera</span></div>
+      <div class="an" style="--d:.6s"><b>FEB–OCT</b><span>Cinco lanzamientos: Atto 2, Shark, Seal U, Seal 5 y Ti7</span></div>
+      <div class="an" style="--d:.7s"><b>5 JUN</b><span>Inauguramos BYD Monumento, nuestra casa eléctrica</span></div>
+      <div class="an" style="--d:.8s"><b>AGOSTO</b><span>Nace el BYD Club y sale de Neostar el auto 10.000 de BYD Argentina</span></div>
+      <div class="an" style="--d:.9s"><b>7 SEP</b><span>El primer taxi 100% eléctrico de Rosario</span></div>
+      <div class="an" style="--d:1s"><b>NOV</b><span>Más de 200 test drives en el Predio UNL de Santa Fe</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 15 · BYD MONUMENTO -->
+<section class="scr t-bordo" data-theme="bordo" aria-label="BYD Monumento">
+  <div class="pad">
+    <div class="quote an" style="--d:.15s;margin-top:20px;font-size:54px">“Para Neostar es un orgullo ser parte de un hito tan significativo para BYD en Argentina.”<small>Sebastián Vázquez, sobre el auto 10.000</small></div>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-3deg;--d:.6s;left:-10px;top:110px;width:960px;height:700px;padding-bottom:84px"><div class="tape"></div><img src="assets/byd-monumento.jpg" alt="Fachada de BYD Monumento, el concesionario BYD de Neostar en Rosario" style="object-position:50% 45%"><div class="cap">BYD MONUMENTO · ROSARIO</div></div>
+    </div>
+    <p class="pop" style="--d:1.3s;--r:-2deg;align-self:flex-start;font-size:72px;font-weight:900;letter-spacing:-2px">Esto recién <span class="acc">empieza.</span></p>
+  </div>
+</section>
+
+<!-- 16 · KIA -->
+<section class="scr t-kia" data-theme="kia" data-music="kia" aria-label="Reconocimiento Kia">
+  <div class="pad">
+    <div class="an" style="--d:.1s;display:flex;justify-content:space-between;align-items:center"><div class="chip">KIA NEOSTAR · RECONOCIMIENTO</div><img src="assets/m-kia.png" alt="Kia" style="height:44px;filter:brightness(0) invert(1)"></div>
+    <h2 class="an" style="--d:.2s;margin-top:28px;font-size:92px;letter-spacing:-4px">Un premio a nuestra <span class="acc">trayectoria</span></h2>
+    <div class="sub an" style="--d:.3s;font-size:34px;margin-top:18px">Kia Argentina y Astara nos distinguieron en los 25 años de Astara en el país</div>
+    <div class="txt" style="gap:16px;margin-top:26px">
+      <p class="an" style="--d:.4s;font-size:32px;line-height:1.4">Somos <b>uno de los dos concesionarios</b> que acompañan a Kia desde el inicio de su operación en la Argentina.</p>
+      <p class="an" style="--d:.5s;font-size:32px;line-height:1.4">El reconocimiento es de todas las personas que formaron y forman parte de Kia Neostar: cada etapa, cada desafío y cada logro llevan su compromiso, su dedicación y su esfuerzo.</p>
+    </div>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-2deg;--d:.8s;left:120px;top:30px;width:660px;height:820px;padding:16px"><img src="assets/kia-collage.jpg" alt="Entrega del reconocimiento de Kia Argentina y Astara, y los equipos de Kia Neostar"></div>
+      <div class="pop" style="--d:1.5s;--r:-6deg;position:absolute;right:-20px;bottom:10px;padding:26px 34px;border-radius:22px;background:#fff;color:#B31F24;font-size:44px;font-weight:900;line-height:1.05;box-shadow:0 16px 36px rgba(0,0,0,.35)">¡Sigamos<br>creciendo juntos!</div>
+    </div>
+  </div>
+</section>
+
+<!-- 17 · SGI ROL -->
+<section class="scr t-crema" data-theme="crema" aria-label="Calidad y SGI">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">CALIDAD · SGI</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:104px">¿Y esto qué tiene que ver con <span class="acc">el SGI?</span></h2>
+    <div class="txt">
+      <p class="an" style="--d:.35s">El cliente llegó para el test drive y falta un detalle: ¿dónde están las llaves del demo? En Posventa preguntan si quedó registrado un accesorio. <b>Ahí empieza el trabajo del SGI.</b></p>
+      <p class="an" style="--d:.5s">Desde el <b>Sistema de Gestión Integrado</b> acompañamos a las sucursales para que esas preguntas tengan una respuesta a mano. Así, la calidad del servicio, el cuidado del ambiente y la seguridad y salud en el trabajo se vuelven parte de lo que hacemos todos los días.</p>
+    </div>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-3deg;--d:.8s;left:60px;top:40px;width:520px;height:600px;padding-bottom:84px"><div class="tape"></div><img src="assets/sgi-auditoria.jpg" alt="Equipo revisando una unidad en el salón" style="object-position:50% 35%"><div class="cap">En la sucursal</div></div>
+      <div class="pop" style="--d:1.3s;--r:-6deg;position:absolute;right:10px;top:180px;width:290px;height:290px;border-radius:50%;background:var(--rojo);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;font-size:42px;font-weight:900;line-height:1.05">¿Y las<br>llaves?</div>
+    </div>
+  </div>
+</section>
+
+<!-- 18 · SGI 2026 -->
+<section class="scr t-bordo" data-theme="bordo" aria-label="SGI: lo que hicimos este año">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">CALIDAD · SGI · 2026</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:110px">Lo que hicimos <span class="acc">este año</span></h2>
+    <ul class="list">
+      <li class="an" style="--d:.35s">Mejoramos los <b>controles operativos</b> y su seguimiento, para que quede claro quién se ocupa y cuál es el próximo paso. Los informes están en el Disco I.</li>
+      <li class="an" style="--d:.45s">Sumamos a <b>BYD</b> a la auditoría interna.</li>
+      <li class="an" style="--d:.55s">Completamos con <b>TÜV Rheinland</b> el último seguimiento del ciclo de certificación de ISO 9001, ISO 14001 e ISO 45001.</li>
+      <li class="an" style="--d:.65s">Sumamos el programa de calidad de BYD y empezamos a trabajar con el de Kia.</li>
+    </ul>
+    <div style="flex:1"></div>
+    <div class="pop" style="--d:1s;--r:-2deg;display:flex;align-items:center;gap:30px;padding:36px 40px;border-radius:36px;background:var(--crema);color:var(--tinta);box-shadow:0 20px 50px rgba(0,0,0,.3)">
+      <div style="flex-shrink:0;font-size:230px;font-weight:900;letter-spacing:-10px;line-height:.85;color:var(--rojo)"><span class="count" data-to="8">0</span>º</div>
+      <div><div style="font-size:26px;font-weight:800;letter-spacing:3px;color:var(--rojo)">NISSAN NEOSTAR</div><div style="margin-top:8px;font-size:44px;font-weight:900;line-height:1.1">Reconocimiento Oro consecutivo en Calidad SerNissan</div><div style="margin-top:10px;font-size:28px;font-weight:600;line-height:1.3;opacity:.8">Ocho ciclos construidos cliente a cliente.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 19 · SGI 2027 -->
+<section class="scr t-crema" data-theme="crema" aria-label="SGI: lo que viene y tu aporte">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s">CALIDAD · SGI · 2027</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:110px">Lo que <span class="acc">viene</span></h2>
+    <ul class="list">
+      <li class="an" style="--d:.35s">La <b>recertificación</b>, ampliando el alcance a Funes, Kia Santa Fe, Kia Rosario, BYD Rosario y BYD Santa Fe.</li>
+      <li class="an" style="--d:.45s">Prepararnos para las <b>nuevas ediciones de ISO 9001 e ISO 14001</b>.</li>
+      <li class="an" style="--d:.55s">Que Suzuki y Subaru incorporen sus programas de calidad.</li>
+    </ul>
+    <div class="quote an" style="--d:.7s;margin-top:40px;font-size:44px">Y en tu sucursal, ¿qué pregunta se repite todas las semanas?</div>
+    <p class="an" style="--d:.8s;margin-top:20px;font-size:35px;line-height:1.4;color:#2a2a2a">Acercale el comentario al equipo del SGI. Quizás ahí esté la próxima mejora que podemos trabajar juntos.</p>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-1.5deg;--d:1.1s;left:30px;top:40px;width:876px;height:470px;padding-bottom:84px"><div class="tape" style="left:8%"></div><div class="tape" style="left:auto;right:8%;transform:rotate(4deg)"></div><img src="assets/sgi-equipo.jpg" alt="Equipo del Sistema de Gestión Integrado de Neostar" style="object-position:50% 55%"><div class="cap" style="display:flex;justify-content:space-between;padding:0 30px;bottom:20px"><span>Equipo SGI</span><span style="color:var(--rojo);font-size:22px;letter-spacing:3px;align-self:center">CALIDAD · AMBIENTE · SEGURIDAD</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · CARTA 1 -->
+<section class="scr t-rojo" data-theme="rojo" data-music="chill" aria-label="Carta del colaborador, parte 1">
+  <div class="pad">
+    <div aria-hidden="true" style="position:absolute;right:-40px;top:120px;font-size:900px;font-weight:900;line-height:1;color:rgba(122,15,46,.55)">”</div>
+    <div class="an" style="--d:.1s;position:relative;display:flex;align-items:center;gap:32px">
+      <div class="ph" style="width:200px;height:200px;border-radius:50%;flex-shrink:0;font-size:22px;padding:10px;opacity:.55">FOTO<br>PABLO</div>
+      <div><div class="chip">CARTA DEL COLABORADOR</div><h2 style="margin-top:18px;font-size:104px">Pablo<br>Apella</h2></div>
+    </div>
+    <div style="position:relative;margin-top:56px;display:flex;flex-direction:column;gap:34px">
+      <p class="an" style="--d:.3s;font-size:60px;font-weight:900">Hola a todos:</p>
+      <p class="an" style="--d:.45s;font-size:40px;line-height:1.48;font-weight:500">Si pienso en mis primeras semanas en Neostar, lo primero que me viene a la cabeza es la forma en que me recibieron. Siempre hubo alguien dispuesto a darme una mano, explicarme algo o incluirme en una charla. Son gestos que quizá parecen pequeños, pero para quien recién llega hacen una gran diferencia.</p>
+      <p class="an" style="--d:.6s;font-size:40px;line-height:1.48;font-weight:500">Quiero agradecer a las personas de Recursos Humanos, a quienes me acompañan en el trabajo y a todos los compañeros que me hicieron un lugar. Me sorprendió encontrar un ambiente tan ameno, con compañerismo y amistades que se notan en el día a día.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 8 · CARTA 2 -->
+<section class="scr t-rojo" data-theme="rojo" data-music="chill" aria-label="Carta del colaborador, parte 2">
+  <div class="pad">
+    <div aria-hidden="true" style="position:absolute;right:-40px;top:120px;font-size:900px;font-weight:900;line-height:1;color:rgba(122,15,46,.55)">”</div>
+    <div class="an" style="--d:.1s;position:relative;display:flex;justify-content:space-between;align-items:center"><div class="chip">CARTA DEL COLABORADOR</div><div style="font-size:30px;font-weight:800">Pablo Apella</div></div>
+    <div style="position:relative;margin-top:56px;display:flex;flex-direction:column;gap:34px">
+      <p class="an" style="--d:.25s;font-size:40px;line-height:1.48;font-weight:500">Para que me conozcan un poco más, buena parte de mis días pasa entre el fútbol, el handball y el vóley de mis dos hijos y los planes que van apareciendo en casa. Así que, si me preguntan qué hice el fin de semana, probablemente la respuesta tenga algo que ver con mi familia. También me gusta cocinar y, si juega Newell’s, ya tengo plan completo. Que el resultado acompañe es otra historia.</p>
+      <p class="an" style="--d:.4s;font-size:40px;line-height:1.48;font-weight:500">Me alegra estar acá. Espero seguir conociéndolos, aprender de ustedes y poder devolver con mi trabajo algo de todo lo que recibí en este comienzo.</p>
+      <div class="an" style="--d:.55s"><div style="font-size:28px;font-weight:700;letter-spacing:4px;color:var(--durazno)">PARA CONOCERLO</div>
+        <div class="pills" style="margin-top:18px"><div class="pill">Fútbol, handball y vóley de sus hijos</div><div class="pill">Cocinar</div><div class="pill">Hincha de Newell’s</div></div></div>
+      <div class="pop" style="--d:.9s;--r:-3deg;font-size:100px;font-weight:900;line-height:1;letter-spacing:-3px;font-style:italic">Un abrazo,<br>Pablo</div>
+    </div>
+  </div>
+</section>
+
+<!-- 23 · CIERRE -->
+<section class="scr t-rojo" data-theme="cierre" data-music="chill" data-manual="1" aria-label="Cierre">
+  <div class="pad" style="align-items:center;text-align:center">
+    <div style="flex:1"></div>
+    <img class="an" src="assets/logo30.png" alt="30 años Neostar — Compartiendo caminos" style="--d:.1s;width:640px">
+    <h2 class="an" style="--d:.3s;margin-top:80px;font-size:128px;letter-spacing:-6px">Gracias por<br>compartir<br><span class="acc">el camino.</span></h2>
+    <p class="an" style="--d:.5s;margin-top:44px;font-size:44px;font-weight:500;line-height:1.35">Tres décadas, miles de historias<br>y un equipo que las hace posibles.</p>
+    <div class="pop" style="--d:.9s;--r:-3deg;margin-top:64px;padding:26px 50px;border-radius:999px;background:#fff;color:var(--rojo);font-size:42px;font-weight:800">Nos vemos en la fiesta · 12/12</div>
+    <div style="flex:1"></div>
+    <div class="brands an" style="--d:1.1s;width:100%">
+      <img src="assets/m-nissan.png" alt="Nissan"><img src="assets/m-kia.png" alt="Kia"><img src="assets/m-honda.png" alt="Honda"><img src="assets/m-subaru.png" alt="Subaru">
+      <img src="assets/m-suzuki.png" alt="Suzuki"><img src="assets/m-byd.png" alt="BYD"><img src="assets/m-jeep.png" alt="Jeep"><img src="assets/m-ram.png" alt="RAM">
+    </div>
+    <button class="an" id="again" style="--d:1.4s;margin-top:60px;padding:20px 44px;border-radius:999px;border:3px solid rgba(255,255,255,.8);background:transparent;color:#fff;font:700 32px Poppins,sans-serif;cursor:pointer">Ver de nuevo</button>
+  </div>
+</section>
+
+</div></div>
+
+<audio id="m-main" src="assets/main.mp3" loop preload="auto"></audio>
+<audio id="m-chill" src="assets/chill.mp3" loop preload="none"></audio>
+<audio id="m-gta" src="assets/gta.mp3" loop preload="none"></audio>
+<audio id="m-kia" src="assets/kia.mp3" loop preload="none"></audio>
+
+<script>
+{
+const $=s=>document.querySelector(s);
+const stage=$('#stage'),wrap=$('#wrap'),scrs=[...document.querySelectorAll('.scr')],bars=$('#bars'),hud=$('#hud');
+const vid=$('#vid'),vsnd=$('#vsnd'),snd=$('#snd'),pau=$('#pau'),tut=$('#tut'),toast=$('#toast'),pausedEl=$('#paused');
+const THEMES={
+  rojo:{bg:'var(--rojo)',blobs:[['var(--coral)',900,'left:-300px;bottom:-200px'],['var(--bordo)',800,'right:-320px;top:-200px'],['var(--durazno)',500,'right:-120px;bottom:240px;opacity:.5']],dots:'rgba(255,220,200,.5)',dpos:'right:0;top:0;width:620px;height:620px',mask:'radial-gradient(circle at 100% 0,#000 0,transparent 70%)'},
+  bordo:{bg:'var(--bordo)',blobs:[['var(--rojo)',900,'right:-360px;top:-260px'],['var(--coral)',700,'left:-320px;bottom:-120px;opacity:.65']],dots:'rgba(255,179,138,.38)',dpos:'left:0;top:0;width:640px;height:640px',mask:'radial-gradient(circle at 0 0,#000 0,transparent 70%)'},
+  bordo2:{bg:'var(--bordo)',blobs:[['var(--rojo)',900,'left:-300px;top:-200px'],['var(--coral)',700,'right:-300px;bottom:-160px;opacity:.8']],dots:'rgba(255,179,138,.4)',dpos:'left:0;bottom:0;width:560px;height:560px',mask:'radial-gradient(circle at 0 100%,#000 0,transparent 70%)'},
+  crema:{bg:'var(--crema)',blobs:[['var(--durazno)',800,'right:-380px;top:-260px;opacity:.75'],['#FFD9C2',700,'left:-320px;bottom:-200px;opacity:.9']],dots:'rgba(226,52,59,.28)',dpos:'right:0;bottom:0;width:700px;height:520px',mask:'linear-gradient(270deg,#000,transparent 75%)',grain:.5},
+  sunset:{bg:'linear-gradient(180deg,#5B1A5E 0%,#C2364A 45%,#FF8A4C 80%,#FFB38A 100%)',blobs:[['#FF6B4A',700,'left:-260px;top:500px;opacity:.6'],['#7A0F2E',700,'right:-300px;top:-200px;opacity:.8']],dots:'rgba(255,230,210,.35)',dpos:'right:0;top:300px;width:600px;height:600px',mask:'radial-gradient(circle at 100% 50%,#000 0,transparent 70%)'},
+  kia:{bg:'#B31F24',blobs:[['var(--bordo)',900,'left:-320px;bottom:-240px'],['var(--coral)',600,'right:-260px;top:-140px;opacity:.6']],dots:'rgba(255,255,255,.25)',dpos:'right:0;top:0;width:600px;height:600px',mask:'radial-gradient(circle at 100% 0,#000 0,transparent 70%)'},
+  cierre:{bg:'linear-gradient(160deg,var(--rojo) 10%,var(--bordo) 85%)',blobs:[['var(--coral)',800,'left:-260px;top:300px;opacity:.7'],['var(--durazno)',600,'right:-260px;top:-160px;opacity:.5']],dots:'rgba(255,255,255,.28)',dpos:'right:0;bottom:420px;width:700px;height:520px',mask:'linear-gradient(270deg,#000,transparent 80%)'}
+};
+scrs.forEach((s,k)=>{const t=THEMES[s.dataset.theme]||THEMES.rojo;const bg=document.createElement('div');bg.className='bg';bg.style.background=t.bg;
+  bg.innerHTML=t.blobs.map((b,i)=>`<div class="blob" style="width:${b[1]}px;height:${b[1]}px;${b[2]};background:radial-gradient(circle closest-side,${b[0]} 0%,transparent 100%);--dx:${i?-90:110}px;--dy:${i?110:-80}px;animation-duration:${13+i*4+(k%3)}s"></div>`).join('')+
+  `<div class="dots" style="--c:${t.dots};${t.dpos};-webkit-mask:${t.mask};mask:${t.mask}"></div><div class="grain" style="opacity:${t.grain||.9}"></div>`;
+  s.prepend(bg);const b=document.createElement('div');b.className='bar';b.innerHTML='<i></i>';bars.appendChild(b)});
+const fills=[...bars.querySelectorAll('i')];
+function fit(){let W=wrap.clientWidth||innerWidth||390,H=wrap.clientHeight||innerHeight;if(!H||H<200){H=Math.round(W*1920/1080);wrap.style.height=H+'px'}
+  const s=Math.min(W/1080,H/1920);stage.style.transform='translate('+(-540*s)+'px,'+(-960*s)+'px) scale('+s+')'}
+addEventListener('resize',fit);addEventListener('orientationchange',fit);try{new ResizeObserver(fit).observe(document.documentElement)}catch(e){}fit();setTimeout(fit,300);
+function words(s){return (s.innerText||s.textContent||'').trim().split(/\s+/).length}
+const durs=scrs.map(s=>s.dataset.manual?0:s.dataset.dur==='video'?'video':Math.max(8,Math.min(48,Math.round(words(s)/3.1+4))));
+/* música */
+const tracks={main:$('#m-main'),chill:$('#m-chill'),gta:$('#m-gta'),kia:$('#m-kia')};
+const labels={gta:'Modo GTA',kia:'Modo campeones',chill:'Modo tranqui',main:''};
+let curTrack=null,musicOn=true,videoSound=false,started=false,fades={};
+function fade(a,to,ms,cb){clearInterval(fades[a.id]);const st=a.volume,n=Math.max(1,Math.round(ms/33));let k=0;fades[a.id]=setInterval(()=>{k++;try{a.volume=Math.max(0,Math.min(1,st+(to-st)*k/n))}catch(e){}if(k>=n){clearInterval(fades[a.id]);cb&&cb()}},33)}
+function play(a){const p=a.play();if(p&&p.catch)p.catch(()=>{})}
+function showToast(t){if(!t)return;toast.querySelector('span').textContent='Sonando: '+t;toast.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>toast.classList.remove('show'),2600)}
+function setTrack(name){if(!started)return;const want=musicOn&&!videoSound;const next=tracks[name];
+  if(curTrack&&curTrack!==next){const old=curTrack;fade(old,0,700,()=>old.pause())}
+  if(next!==curTrack){if(name==='gta'||name==='kia'){try{next.currentTime=0}catch(e){}}curTrack=next;if(want){try{next.volume=0}catch(e){}play(next);fade(next,.85,900)}if(labels[name])showToast(labels[name])}
+  else if(want){if(next.paused){play(next)}fade(next,.85,600)}
+  else{fade(next,0,500,()=>{if(!(musicOn&&!videoSound))next.pause()})}}
+function syncMusic(){if(curTrack)setTrack(Object.keys(tracks).find(k=>tracks[k]===curTrack))}
+function setVideoSound(on){videoSound=on;vid.muted=!on;vsnd.querySelector('span').textContent=on?'Silenciar video':'Escuchar el video';syncMusic()}
+function countUp(el){const to=+el.dataset.to,st=performance.now(),d=1400;el.textContent='0';(function f(n){const k=Math.min(1,(n-st)/d);el.textContent=Math.round(to*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(st)}
+function yearDown(el){const a=+el.dataset.from,b=+el.dataset.to,st=performance.now()+300,d=1600;el.textContent=a;(function f(n){const k=Math.max(0,Math.min(1,(n-st)/d));el.textContent=Math.round(a+(b-a)*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)})(performance.now())}
+let cur=-1,t0=0,elapsed=0,paused=false,tutOn=false,tutDone=false;
+function go(i){if(i<0||i>=scrs.length)return;if(cur>=0)scrs[cur].classList.remove('on');
+  if(scrs[cur]&&scrs[cur].contains(vid)){vid.pause();if(videoSound)setVideoSound(false)}
+  cur=i;const s=scrs[i];void s.offsetWidth;s.classList.add('on');hud.classList.toggle('dark',s.classList.contains('t-crema'));
+  fills.forEach((f,k)=>f.style.width=k<i?'100%':'0%');elapsed=0;t0=performance.now();setPaused(false);
+  s.querySelectorAll('.count').forEach(el=>setTimeout(()=>countUp(el),700));s.querySelectorAll('.year').forEach(yearDown);
+  if(s.contains(vid)){try{vid.currentTime=0}catch(e){}play(vid)}
+  setTrack(s.dataset.music||'main');
+  if(i===0){tutOn=true;tut.classList.add('show')}}
+function hideTut(){if(!tutOn)return;tutOn=false;tutDone=true;tut.classList.remove('show');t0=performance.now()}
+function next(){if(!started)return;if(cur<scrs.length-1)go(cur+1)}
+function prev(){if(cur>1)go(cur-1)}
+function setPaused(v){if(v===paused)return;paused=v;if(v){elapsed+=performance.now()-t0;if(scrs[cur].contains(vid))vid.pause()}else{t0=performance.now();if(scrs[cur]&&scrs[cur].contains(vid))play(vid)}
+  pausedEl.classList.toggle('show',v&&!held);pau.setAttribute('aria-label',v?'Reanudar':'Pausar');
+  $('#pauIco').innerHTML=v?'<path class="f" d="M8 5v14l11-7z"/>':'<rect class="f" x="6" y="5" width="4" height="14" rx="1"/><rect class="f" x="14" y="5" width="4" height="14" rx="1"/>'}
+function tick(n){const s=scrs[cur];if(s&&!paused&&!tutOn){const d=durs[cur];let p=0;
+  if(d==='video'){p=vid.duration?vid.currentTime/vid.duration:0}
+  else if(d>0){p=(elapsed+(n-t0))/1000/d;if(p>=1){fills[cur].style.width='100%';next()}}
+  else p=cur===scrs.length-1?1:0;
+  if(fills[cur])fills[cur].style.width=Math.min(100,p*100)+'%'}requestAnimationFrame(tick)}
+requestAnimationFrame(tick);
+vid.addEventListener('ended',()=>{if(!paused)next()});
+function startAll(){hideTut();started=true;Object.values(tracks).forEach(a=>{try{a.load&&a.preload==='none'&&a.load()}catch(x){}});go(1)}
+$('#start').addEventListener('click',e=>{e.stopPropagation();startAll()});
+$('#again').addEventListener('click',e=>{e.stopPropagation();go(1)});
+vsnd.addEventListener('click',e=>{e.stopPropagation();setVideoSound(!videoSound);if(vid.paused&&!paused)play(vid)});
+pau.addEventListener('click',e=>{e.stopPropagation();if(!started)return;setPaused(!paused)});
+snd.addEventListener('click',e=>{e.stopPropagation();musicOn=!musicOn;snd.setAttribute('aria-label',musicOn?'Silenciar música':'Activar música');
+  $('#sndIco').innerHTML=musicOn?'<path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/>':'<path d="M11 5 6 9H3v6h3l5 4z"/><path d="m16 9 6 6M22 9l-6 6"/>';syncMusic()});
+let holdT=null,held=false;
+stage.addEventListener('pointerdown',e=>{if(e.target.closest('button,a'))return;held=false;holdT=setTimeout(()=>{held=true;setPaused(true)},280)});
+stage.addEventListener('pointerup',e=>{if(e.target.closest('button,a'))return;clearTimeout(holdT);if(held){held=false;setPaused(false);return}
+  const r=stage.getBoundingClientRect(),right=e.clientX-r.left>=r.width*0.3;
+  if(!started){if(right)startAll();return}
+  if(right)next();else prev()});
+addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();if(e.key===' '){e.preventDefault();setPaused(!paused)}});
+document.addEventListener('visibilitychange',()=>{if(document.hidden){Object.values(tracks).forEach(a=>a.pause());vid.pause()}else{syncMusic();if(scrs[cur]&&scrs[cur].contains(vid)&&!paused)play(vid)}});
+go(0);
+}
+</script>
+</body>
+</html>
