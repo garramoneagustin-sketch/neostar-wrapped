@@ -138,6 +138,11 @@ p{margin:0}
 #paused{position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px 0 0 -100px;border-radius:50%;background:rgba(20,20,20,.55);z-index:26;display:none;align-items:center;justify-content:center}
 #paused.show{display:flex}
 #paused i{display:block;width:26px;height:90px;background:#fff;border-radius:6px;margin:0 12px}
+html.static *{animation:none!important;transition:none!important}
+html.static .an,html.static .pop,html.static .pol{opacity:1}
+html.static .pol,html.static .pop{transform:rotate(var(--r,0deg))}
+html.static .mapimg{opacity:1;transform:none}
+html.static #tut,html.static #toast,html.static #confetti,html.static .hud{display:none!important}
 @media (prefers-reduced-motion:reduce){.blob,.spin,.pulse{animation:none!important}.on .an,.on .pol,.on .pop{animation-duration:.01s!important}}
 </style>
 </head>
@@ -196,7 +201,7 @@ p{margin:0}
 </section>
 
 <!-- 3 · SEMILLERO -->
-<section class="scr t-crema sm" data-theme="crema" aria-label="Semillero de pasantías">
+<section class="scr t-crema" data-theme="crema" aria-label="Semillero de pasantías">
   <div class="pad">
     <div class="chip an" style="--d:.1s">TALENTO HUMANO</div>
     <h2 class="an" style="--d:.2s;margin-top:30px;font-size:104px">Aprender haciendo. <span class="acc">Crecer compartiendo.</span></h2>
@@ -206,14 +211,22 @@ p{margin:0}
       <p class="an" style="--d:.5s">Nos sumamos también a proyectos que trascienden, como nuestro aporte al desarrollo del <b>auto eléctrico junto a la Escuela Manuel Belgrano</b>.</p>
       <p class="an" style="--d:.6s">Porque cuando damos lugar al <b>talento joven</b>, no solo formamos futuros profesionales: también construimos nuevas ideas. <b>Gracias a quienes enseñan y a quienes se animan a aprender.</b></p>
     </div>
-    <div style="flex:1;display:flex;gap:30px;align-items:center;margin-top:30px">
-      <div class="an" style="--d:.8s;display:flex;flex-direction:column;gap:20px;width:440px;flex-shrink:0">
-        <div class="stat hot"><b><span class="count" data-to="4">0</span></b><span>áreas con pasantes</span></div>
-        <div class="stat"><b><span class="count" data-to="1">0</span></b><span>proyecto de auto eléctrico con la Escuela Manuel Belgrano</span></div>
-      </div>
-      <div style="position:relative;flex:1;height:100%">
-        <div class="pol" style="--r:4deg;--d:1s;left:10px;top:50%;margin-top:-215px;width:420px;height:440px;padding-bottom:84px"><div class="tape"></div><img src="assets/angie.jpg" alt="Angie, pasante de Recursos Humanos, en su escritorio" style="object-position:50% 30%"><div class="cap" style="font-size:24px">Angie · Pasante de RRHH</div></div>
-      </div>
+    <div class="stats an" style="--d:.8s;grid-template-columns:1fr 1.6fr;margin-top:44px">
+      <div class="stat hot"><b><span class="count" data-to="4">0</span></b><span>áreas con pasantes</span></div>
+      <div class="stat"><b><span class="count" data-to="1">0</span></b><span>proyecto de auto eléctrico con la Escuela Manuel Belgrano</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3b · SEMILLERO FOTOS -->
+<section class="scr t-bordo" data-theme="bordo" data-dur="9" aria-label="Semillero de pasantías en fotos">
+  <div class="pad">
+    <div class="chip an" style="--d:.1s;background:var(--durazno);color:var(--bordo)">SEMILLERO DE PASANTÍAS</div>
+    <h2 class="an" style="--d:.2s;margin-top:30px;font-size:110px">Crecer <span class="acc">compartiendo</span></h2>
+    <div style="position:relative;flex:1">
+      <div class="pol" style="--r:-5deg;--d:.4s;left:-10px;top:40px;width:440px;height:520px;padding-bottom:70px"><img src="assets/angie.jpg" alt="Angie, pasante de Recursos Humanos, en su escritorio" style="object-position:50% 30%"><div class="cap" style="font-size:24px">Angie · Pasante de RRHH</div></div>
+      <div class="pol" style="--r:4deg;--d:.6s;left:480px;top:10px;width:440px;height:520px;padding-bottom:70px"><img src="assets/mailen.jpg" alt="Mailen, pasante de Marketing, en un evento de Neostar" style="object-position:50% 20%"><div class="cap" style="font-size:24px">Mailen · Pasante de Marketing</div></div>
+      <div class="pol" style="--r:-2deg;--d:.9s;left:40px;top:640px;width:860px;height:620px;padding-bottom:80px"><div class="tape" style="background:rgba(255,179,138,.9)"></div><img src="assets/belgrano-auto.jpg" alt="El auto eléctrico de la Escuela Técnica Manuel Belgrano, con el logo de Neostar" style="object-position:50% 60%"><div class="cap" style="font-size:24px">Auto eléctrico · Escuela Manuel Belgrano</div></div>
     </div>
   </div>
 </section>
@@ -377,7 +390,8 @@ p{margin:0}
   <div class="pad">
     <div class="quote an" style="--d:.15s;margin-top:20px;font-size:54px">“Para Neostar es un orgullo ser parte de un hito tan significativo para BYD en Argentina.”<small>Sebastián Vázquez, sobre el auto 10.000</small></div>
     <div style="position:relative;flex:1">
-      <div class="pol" style="--r:-3deg;--d:.6s;left:-10px;top:110px;width:960px;height:700px;padding-bottom:84px"><div class="tape"></div><img src="assets/byd-monumento.jpg" alt="Fachada de BYD Monumento, el concesionario BYD de Neostar en Rosario" style="object-position:50% 45%"><div class="cap">BYD MONUMENTO · ROSARIO</div></div>
+      <div class="pol" style="--r:-3deg;--d:.6s;left:-10px;top:70px;width:800px;height:560px;padding-bottom:84px"><div class="tape"></div><img src="assets/byd-monumento.jpg" alt="Fachada de BYD Monumento, el concesionario BYD de Neostar en Rosario" style="object-position:50% 45%"><div class="cap">BYD MONUMENTO · ROSARIO</div></div>
+      <div class="pol" style="--r:5deg;--d:.95s;left:520px;top:470px;width:410px;height:640px"><img src="assets/byd-arbolito.jpg" alt="Un BYD exhibido junto al árbol de Navidad" style="object-position:50% 60%"></div>
     </div>
     <p class="pop" style="--d:1.3s;--r:-2deg;align-self:flex-start;font-size:72px;font-weight:900;letter-spacing:-2px">Esto recién <span class="acc">empieza.</span></p>
   </div>
@@ -554,12 +568,16 @@ const durs=scrs.map(s=>s.dataset.manual?0:s.dataset.dur==='video'?'video':Math.m
 const tracks={main:$('#m-main'),chill:$('#m-chill'),gta:$('#m-gta'),kia:$('#m-kia')};
 const labels={gta:'Modo GTA',kia:'Modo campeones',chill:'Modo tranqui',main:''};
 let curTrack=null,musicOn=true,videoSound=false,started=false,fades={};
-function fade(a,to,ms,cb){clearInterval(fades[a.id]);const st=a.volume,n=Math.max(1,Math.round(ms/33));let k=0;fades[a.id]=setInterval(()=>{k++;try{a.volume=Math.max(0,Math.min(1,st+(to-st)*k/n))}catch(e){}if(k>=n){clearInterval(fades[a.id]);cb&&cb()}},33)}
+let actx=null;const gains={};
+function initAudio(){if(actx)return;try{const AC=window.AudioContext||window.webkitAudioContext;actx=new AC();Object.values(tracks).forEach(a=>{const g=actx.createGain();g.gain.value=0;actx.createMediaElementSource(a).connect(g).connect(actx.destination);gains[a.id]=g;a.volume=1})}catch(e){actx=null}}
+function fade(a,to,ms,cb){clearInterval(fades[a.id]);clearTimeout(fades[a.id+'t']);
+  if(actx&&gains[a.id]){const g=gains[a.id].gain,t=actx.currentTime;g.cancelScheduledValues(t);g.setValueAtTime(g.value,t);g.linearRampToValueAtTime(to,t+ms/1000);if(cb)fades[a.id+'t']=setTimeout(cb,ms+30);return}
+  const st=a.volume,n=Math.max(1,Math.round(ms/33));let k=0;fades[a.id]=setInterval(()=>{k++;try{a.volume=Math.max(0,Math.min(1,st+(to-st)*k/n))}catch(e){}if(k>=n){clearInterval(fades[a.id]);cb&&cb()}},33)}
 function play(a){const p=a.play();if(p&&p.catch)p.catch(()=>{})}
 function showToast(t){if(!t)return;toast.querySelector('span').textContent='Sonando: '+t;toast.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(()=>toast.classList.remove('show'),2600)}
 function setTrack(name){if(!started)return;const want=musicOn&&!videoSound;const next=tracks[name];
-  if(curTrack&&curTrack!==next){const old=curTrack;fade(old,0,700,()=>old.pause())}
-  if(next!==curTrack){if(name==='gta'||name==='kia'){try{next.currentTime=0}catch(e){}}curTrack=next;if(want){try{next.volume=0}catch(e){}play(next);fade(next,.85,900)}if(labels[name])showToast(labels[name])}
+  if(curTrack&&curTrack!==next){const old=curTrack;fade(old,0,1600,()=>{if(curTrack!==old)old.pause()})}
+  if(next!==curTrack){if(name==='gta'||name==='kia'){try{next.currentTime=0}catch(e){}}curTrack=next;if(want){if(!actx){try{next.volume=0}catch(e){}}else{gains[next.id].gain.setValueAtTime(0,actx.currentTime)}play(next);fade(next,.85,1600)}if(labels[name])showToast(labels[name])}
   else if(want){if(next.paused){play(next)}fade(next,.85,600)}
   else{fade(next,0,500,()=>{if(!(musicOn&&!videoSound))next.pause()})}}
 function syncMusic(){if(curTrack)setTrack(Object.keys(tracks).find(k=>tracks[k]===curTrack))}
@@ -593,7 +611,7 @@ function tick(n){const s=scrs[cur];if(s&&!paused&&!tutOn){const d=durs[cur];let 
 requestAnimationFrame(tick);
 vid.addEventListener('ended',()=>{if(!paused)next()});
 tracks.kia.addEventListener('ended',()=>{if(curTrack===tracks.kia){curTrack=null;setTrack('main')}});
-function startAll(){hideTut();started=true;Object.values(tracks).forEach(a=>{try{a.load&&a.preload==='none'&&a.load()}catch(x){}});go(1)}
+function startAll(){hideTut();initAudio();if(actx&&actx.state==='suspended')actx.resume();started=true;Object.values(tracks).forEach(a=>{try{a.load&&a.preload==='none'&&a.load()}catch(x){}});go(1)}
 $('#start').addEventListener('click',e=>{e.stopPropagation();startAll()});
 $('#again').addEventListener('click',e=>{e.stopPropagation();go(1)});
 vsnd.addEventListener('click',e=>{e.stopPropagation();setVideoSound(!videoSound);if(vid.paused&&!paused)play(vid)});
@@ -607,8 +625,10 @@ stage.addEventListener('pointerup',e=>{if(e.target.closest('button,a'))return;cl
   if(!started){if(right)startAll();return}
   if(right)next();else prev()});
 addEventListener('keydown',e=>{if(e.key==='ArrowRight')next();if(e.key==='ArrowLeft')prev();if(e.key===' '){e.preventDefault();setPaused(!paused)}});
-document.addEventListener('visibilitychange',()=>{if(document.hidden){Object.values(tracks).forEach(a=>a.pause());vid.pause()}else{syncMusic();if(scrs[cur]&&scrs[cur].contains(vid)&&!paused)play(vid)}});
-go(0);
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&actx&&actx.state==='suspended')actx.resume();if(document.hidden){Object.values(tracks).forEach(a=>a.pause());vid.pause()}else{syncMusic();if(scrs[cur]&&scrs[cur].contains(vid)&&!paused)play(vid)}});
+const SM=location.hash.match(/^#static-(\d+)$/);
+if(SM){document.documentElement.classList.add('static');const i=+SM[1];cur=i;scrs.forEach(x=>x.classList.remove('on'));scrs[i].classList.add('on');scrs[i].querySelectorAll('.count').forEach(el=>el.textContent=el.dataset.to);scrs[i].querySelectorAll('.year').forEach(el=>el.textContent=el.dataset.to);if(vid)vid.removeAttribute('src');paused=true}
+else go(0);
 }
 </script>
 </body>
